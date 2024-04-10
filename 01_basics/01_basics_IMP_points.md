@@ -99,9 +99,11 @@ Rule 1.
 /*
     for (<=, =>, <, >, ==)
 
-    <string /Number /Boolean /null /undefined, Number /null /undefined> comparison: 
+    <string /Number /Boolean , Number comparison: 
 
-    1. Number/String/Boolean/undefined/null from both sides is converted to number then comparison of both numbers. 
+    1. Number/String/Boolean from both sides is converted to a Number and comparison of Number takes place.
+
+    NOTE: exception might happen when there is  undefined / (null with ==)
 
     2. <string,string> comparison: based on char by char matching based on ASCII values.
 
@@ -115,7 +117,7 @@ eg: (1 >= "1") // T
 
 Rule 2. 
 /*
-    strict equality check(===): checks based on both type + value i.e No conversion to Number before 
+    strict equality check(===): checks based on both type + value i.e No conversion to Number before. 
 
 */
 eg: (Boolean(-1) == 1); // T (bcz true == 1 i.e Number(true)i.e 1 == 1)
@@ -139,7 +141,7 @@ Rule 4. (Exceptions)
 /* explore more about truthy and falsy values to understand below ones  */
 
 eg: (undefined == {}); // F (bcz comparison between undefined and a Number)
-    (undefined == NaN) // F
+    (undefined == NaN) // F (bcz undefined is nothing and NaN is a number)
 
     (undefined == null); // T bcz both means nothing
     (undefined == Number(null)); // F (NaN < 0)
@@ -150,5 +152,60 @@ eg: (undefined == {}); // F (bcz comparison between undefined and a Number)
     (undefined == Number(undefined)) // F
     (undefined <= undefined) // F
     (undefined == false); // false means something and UD doesn't 
+
+```
+
+### 3. String 
+
+``` javascript
+
+1. string methods:
+    - str.length, .toUpperCase(), .charAt(ind) // can't find then '' 
+    - .indexOf(character) // can't find then -1
+    - .substring(start, end) // from ind = start to ind = end-1
+
+    - .slice // same as .substring(start, end) && no changes to org string made
+
+    - .trim // remove whitespaces ONLY from beginning and end
+        eg: str = "    himadri     das  ". && str.trim() -> "himadri    das"
+
+    - .replace  // str.replace(substring to find, substring to replace it with) .
+                // no change to original string is made.
+
+    - .includes // str.includes(substring) -> returns bool 
+
+    - .split // str.split(separator, limit(optional))
+        eg: str = "himadri-das-learning-js"
+            str.split('-', 2) // separated substrings based on the separator and put them in an array, limit: is not of extracted substrings it returns in an array.
+
+```
+
+### 4. Numbers and Maths
+
+``` javascript 
+
+// whenever applying methods to Numbers: after application always check the type
+
+1. no.toString() // converts to string
+2. decimal.toFixed(2) // (returns a string) : no till 2 decimal places 
+3. decimal.toPrecision(3) // (string) : total 3 significant figures and round off the last digit
+4. hundreds.toLocaleString('en-US') // 1000000 -> 1,000,000
+    
+5. (Number.MAX_SAFE_INTEGER) // max value without 'e'
+6. (Number.MIN_SAFE_INTEGER) // -ve of Max safe value
+
+7. Math.floor(3.123) // just smaller val
+8. Math.round(3.523) // round off
+9. Math.ceil(3.123)  // just greater val
+
+// math.random() no between 0 and 1
+    // how do I use it to find random no between a range i.e a,b
+
+    const a = 23, b = 34;
+
+    Math.floor(Math.random() * 10) // integers between 0 and < 10 
+    Math.floor(Math.random() * (b - a + 1)) // integers between 1 and < b-a+1 
+10. Math.floor(Math.random() * (b - a + 1)) + a // integers between 1 + a and < b - a + 1 + a i.e nos between a and b
+
 
 ```
