@@ -209,3 +209,44 @@ eg: (undefined == {}); // F (bcz comparison between undefined and a Number)
 
 
 ```
+
+### 5. Dates in JS
+
+``` javascript
+    // create a Date Object of current date
+    const mydate = new Date() 
+    mydate // is an object
+
+    // we can create Date Object of a specific date
+    const mydate = new Date(23, 6, 23, 23, 12, 12) // yr, month(0 based), date, hr, min, sec  (based on hr, am/pm is automatically set)
+
+    mydate // 23/7/23, 23:12:12 pm
+
+    // functions in prototype of Date object: so all date objects inherits these prop
+
+    mydate.toLocaleString() // date + time
+    mydate.toLocaleDateString() // date
+    mydate.toLocaleTimeString() // time
+
+
+    // based on below we can create a polling game
+    Date.now() // returns no of ms from 1st jan 1970
+
+    let user1 = Date.now()
+    let user2 = Date.now()
+
+    if(Math.floor(user1/1000) > Math.floor(user2/1000)) {
+        // user1 registered 1st
+    }
+    else {
+        // user2 registered 1st
+    }
+
+    // returns week days in fullform
+    const newDate = new Date()
+
+    newDate.toLocaleString('default', {
+        weekday: 'long'
+    }) // output: wednesday
+
+```
