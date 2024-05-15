@@ -250,3 +250,30 @@ eg: (undefined == {}); // F (bcz comparison between undefined and a Number)
     }) // output: wednesday
 
 ```
+
+### 6. Data types in JS
+
+``` javascript 
+
+1. Primitve data types : (String, Number, Boolean, Symbol, null, undefined).
+    : (pass by value) i.e separate copy is always created.
+
+2. Non Primitive data types : Objects : (objects, functions, arrays)
+    : (pass by reference) i.e separate copy is not created.
+
+3. typeof function === 'function'
+    functions in JS are Objects bcz they take properties from Object, but functions are 'callable objects'. so typeof function === 'function' so we can distinguish if this is callable or not.
+
+4. What are symbols ? 
+
+- when Symbol() constructor is called, it returns a Symbol value which is always unique.
+
+- Symbols are often used to add unique property keys to an object which would never collide with another key added to the same object.
+
+- Thus, it helps to create a weak form of encapsulation or weak information hiding.
+ 
+    i.e console.log(Symbol('abc') === Symbol('abc')) //false
+
+
+5. memory : 2 types: stack(for primitive type i.e new copy created), HEAP(for non primitive type: new copy is not created i.e works on reference)
+```
