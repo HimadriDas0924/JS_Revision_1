@@ -46,4 +46,18 @@ let splicedArr2 = arr2.splice(2,3,'himadri', 'das', 'babin', 'das')
 arr2 -> [1,2,'himadri' ,'das', 'babin', 'das', 6, 7]
 splicedArr2 -> [3,4,5]
 
+
+// Concat, Spread Opearator, Array.of() -> all returns a new array
+
+arr1.concat(arr2)
+[...arr1, ...arr2] // []: rep empty array and within that we're spreading all the elem of each of the array
+Array.of(23, 24, 25) // [23, 24, 25]
+
+// check if data is in form of array or not: if no: convert it to array
+Array.isArray("himadri") // false
+Array.from("himadri") // ['h', 'i', 'm', 'a', 'd', 'r', 'i'] : each char separated by ,
+
+// NOTE:
+Array.from({name: "himadri", age: 23}) // [] bcz we haven't mentioned what to convert to array
+
 ```
