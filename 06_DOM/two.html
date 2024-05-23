@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #my_id1{
+            color: white;
+            background-color: green;
+            padding: 2px;
+            border-radius: 4px;
+        }
+        #my_id2{
+            color: white;
+            background-color: orange;
+            padding: 2px;
+            border-radius: 4px;
+        }
+        #my_id3{
+            color: #121212;
+            background-color: cyan;
+            padding: 2px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body style="background-color: #121212; color: #ffffff;">
+
+    <div id="parent">
+        <div id="child1">child1</div>
+        <div id="child2">child2</div>
+        <!-- comment -->
+        <div id="child3">child3</div>
+        <div id="child4">child4</div>
+    </div>
+
+    <button id="change">Change</button>
+
+</body>
+<script>
+
+    const parent = document.querySelector('#parent')
+    const child2 = document.querySelector('#child2')
+
+    console.log(parent.children); // returns a HTML Collection of all childrens
+
+    // 1st and last children
+    console.log(parent.firstElementChild);
+    console.log(parent.lastElementChild);
+
+    // child -> Parent
+    console.log(child2.parentElement);
+
+    // child -> sibling
+    console.log(child2.nextElementSibling); // NOTE: cannot go to next sibling after last sibling, if we can't it represents null node.
+
+    // parent.childNodes: returns a NodeList of textNodes, comment Nodes, element Nodes
+    console.log(parent.childNodes);
+
+
+    // create, replace, remove elem from DOM
+
+    // create
+    const elem = document.createElement('div')
+    elem.appendChild(document.createTextNode('himadri das'))
+    elem.id = 'my_id1'
+
+    document.querySelector('#parent').appendChild(elem)
+
+    // replace
+
+    const elem2 = document.createElement('div')
+    elem2.innerText = 'trisha das'
+    elem2.id = 'my_id2'
+
+    elem.replaceWith(elem2)
+
+    function replace() {
+        // fetch the current last elem of parent and the element to replace it with
+
+        const lastElem = parent.lastElementChild
+
+        // 2 methods to replace elem
+        if(lastElem === elem) {
+            // M1) 
+            lastElem.replaceWith(elem2)
+        }
+        else if(lastElem == elem2) {
+            // M2)
+            lastElem.outerHTML = '<div id = "my_id3"> New outer HTML of lastElem </div>'
+        }
+        else {
+            lastElem.replaceWith(elem)
+        }
+
+        // M3) is changing the innerHTML 
+            // unlike M1 and M2 : this way node remains the same i.e node1.isEqualNode(new node) // true 
+    }
+
+    document.getElementById('change').addEventListener('click', function(e) {
+        replace();
+    })
+
+    // i.e we can either change the innerHTML or outerHTML
+    parent.lastElementChild.innerHTML = 'new my name'
+
+    // parent.lastElementChild.outerHTML = '<div id = "my_id3"> New outer HTML of parent </div>'
+
+    // remove node
+        // node.remove()
+        // parent.removeChild()
+
+    parent.lastElementChild.remove()
+
+    parent.removeChild(child2)
+
+</script>
+</html>

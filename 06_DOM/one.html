@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #two{
+            display: none;
+        }
+    </style>
+</head>
+<body style="background-color: #121212; color: #ffffff;">
+
+    <div id="week" class="week_days_class">
+        <div class="days" id="monday_id">Monday</div>
+        <div class="days">Tuesday</div>
+        <div class="days">Wednesday</div>
+        <div class="days">Thursday</div>
+        <div class="days">Friday</div>
+    </div>
+
+    <div id="one">
+        Content of One
+        <div id="two">
+            Content of Two
+            <div id="three">Content of Three</div>
+        </div>
+    </div>
+
+</body>
+<script>
+
+    // access element
+
+    const week1 = document.getElementById('week') // getElementById() returns a single DOM element (not a NodeList, not a HTMLCollection)
+    const week2 = document.querySelector('#week') // querySelector() returns 1st occurrence of an element (i.e returns a single DOM element): similar to getElementById()
+
+    console.log(week1 === week2); // true
+
+    const days = document.querySelectorAll('.days') // querySelectorAll() always returns a 'NodeList'
+
+    console.log(days); // NodeList
+
+    // change or remove property of elem
+    console.log(week1.id);
+    console.log(week1.className);
+    console.log(week1.getAttribute('id'));
+
+    week1.setAttribute('class', 'class1 class2 class3');
+    console.log(week1.className);
+
+    week1.removeAttribute('class')
+    console.log(week1.className);
+
+    const one = document.getElementById('one')
+
+    console.log(one.innerText); // text visible in browser
+    console.log(one.textContent);   // also includes text which is not visible
+    console.log(one.innerHTML);     // includes innerHTML within an elem
+
+    // iterate a NodeList
+    for(value of Array.from(days)) {
+        console.log(value.innerText);
+    }
+
+
+</script>
+</html>
