@@ -93,6 +93,12 @@ clone.id = 'new id'
 elem1.replaceWith(elem2)  // node's memory location changes
 elem1.innerHTML = ' smt ' // node mem location same
 elem1.outerHTML = elem2 // node's memory location changes
+/*
+i.e <div id = "parent"></div>
+-> if we do 
+    parent.outerHTML = newElement
+    // now parent doesn't exist anymore
+*/
 
 // remove node
 
