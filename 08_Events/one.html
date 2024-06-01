@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+
+        <div id="one" style = "height: 100px; width: 100px; background-color: red; position: absolute;">
+            
+            <div id="two" style = "height: 100px; width: 100px; background-color: blue; position: relative; left: 100px">
+
+                <div id="three" style = "height: 100px; width: 100px; background-color: pink; position: relative; left: 100px"> 
+
+                    <div id = "four", style = "height: 100px; width: 100px; background-color: green; position: relative; left: 100px;">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+   </div>
+</body>
+<script>
+    window.addEventListener('click', (e) => {
+        console.log('window clicked');
+    })
+
+    document.addEventListener('click', (e) => {
+        console.log('document clicked');
+    }, true)
+
+    document.getElementById('one').addEventListener('click', (e) => {
+        console.log(`one clicked`);
+    }, false)
+
+    document.getElementById('two').addEventListener('click', (e) => {
+        console.log(`two clicked`);
+        e.stopPropagation() // so during capturing phase only it stops
+    }, true)
+
+    document.getElementById('three').addEventListener('click', (e) => {
+        console.log(`three clicked`);
+    }, true)
+
+    document.getElementById('four').addEventListener('click', (e) => {
+        console.log(`four clicked`);
+    }, false)
+    
+</script>
+</html>

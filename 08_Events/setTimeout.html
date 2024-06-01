@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #121212;">
+
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+
+</body>
+<script>
+
+
+    // setTimeout() and clearTimeout()
+
+    // function showName(name) {
+    //     console.log(`welcome ${name}`);
+    // }
+
+    // let setTimeout_id;
+
+    // document.getElementById('start').addEventListener('click', (e) => {
+        
+    //     setTimeout_id = setTimeout(showName, 3000, "himadri das")
+    //     // console.log(`setTimeout_id: ${setTimeout_id} && it's type is ${typeof setTimeout_id}`);
+    // })
+
+    // document.getElementById('stop').addEventListener('click', (e) => {
+
+    //     if(!isNaN(setTimeout_id)) {
+
+    //         clearTimeout(setTimeout_id)
+    //         console.log('setTimeout stopped');
+    //         setTimeout_id = undefined
+
+    //     }
+    // })    
+
+    
+    function getTime(name) {
+        let date = new Date()
+
+        console.log(`${name} the time is ${date.toLocaleTimeString()}`);
+    }
+
+    let interval_id;
+
+    document.getElementById('start').addEventListener('click', (e) => {
+        interval_id = setInterval(getTime, 1000, "himadri das")
+    })
+
+    document.getElementById('stop').addEventListener('click', (e) => {
+
+        if(!isNaN(interval_id)) {
+            
+            clearInterval(interval_id)
+            interval_id = undefined
+        }
+    })
+
+</script>
+</html>
