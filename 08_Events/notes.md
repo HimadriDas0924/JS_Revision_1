@@ -17,7 +17,7 @@
 // Phase 2) Target Phase
 
     /*
-        Basically end of target phase and beginning of the capturing phase.
+        Basically end of capturing phase and beginning of the bubbling phase.
     */
 
 // Phase 3) Bubbling Phase
@@ -29,6 +29,18 @@
     */
 
 eg: 
+    <body>
+        <div id = "one">
+            <div id = "two">
+                <div id = "three">
+                    <div id = "four">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    
 
 window.addEventListener('click', (e) => {
     console.log('window clicked');
@@ -45,6 +57,7 @@ document.getElementById('one').addEventListener('click', (e) => {
 document.getElementById('two').addEventListener('click', (e) => {
     console.log(`two clicked`);
     e.stopPropagation() // so during capturing phase only it stops
+    // propation will stop and no more event phases will happen.
 }, true)
 
 document.getElementById('three').addEventListener('click', (e) => {
